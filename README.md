@@ -1,0 +1,74 @@
+# parcel-reporter-asset-map
+
+This will add `asset-map.json` to the target dir. Example:
+
+```json
+{
+    "assets": {
+        "src/page1.js": "index.be4a6159.js",
+        "src/page2.js": "index.20fcbe4a.js",
+        "src/styles1.css": "index.1417f4ce.css",
+        "src/styles2.css": "index.ef415fe0.css"
+    },
+    "entries": {
+        "index": {
+            "css": [
+                "src/styles1.css",
+                "src/styles2.css"
+            ],
+            "js": [
+                "src/page1.js",
+                "src/page2.js"
+            ]
+        }
+    }
+}
+```
+
+## Support differential bundling
+
+More info: https://v2.parceljs.org/features/targets/#differential-bundling
+
+```json
+{
+    "assets": {
+        "src/page.js": {
+            "nomodule": "page.1b313ef4.js",
+            "module": "page.cc6e2cca.js"
+        },
+        "src/styles1.css": "index.1417f4ce.css",
+        "src/styles2.css": "index.ef415fe0.css"
+    },
+    "entries": {
+        "index": {
+            "css": [
+                "src/styles1.css",
+                "src/styles2.css"
+            ],
+            "js": [
+                "src/page.js"
+            ]
+        }
+    }
+}
+```
+
+## Installation
+
+```sh
+npm install --save-dev parcel-reporter-asset-map
+```
+
+## Usage
+
+Add `parcel-reporter-asset-map` to `.parcelrc` in `reporters`.
+
+```json
+{
+    "extends": "@parcel/config-default",
+    "reporters": [
+        "...",
+        "parcel-reporter-asset-map"
+    ]
+}
+```
