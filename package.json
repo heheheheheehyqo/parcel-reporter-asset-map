@@ -1,6 +1,6 @@
 {
   "name": "@hyqo/parcel-reporter-asset-map",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Parcel 2 plugin for generating a bundle's asset map",
   "scripts": {
     "build": "parcel build",
