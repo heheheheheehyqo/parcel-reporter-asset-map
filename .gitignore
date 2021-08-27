@@ -2,3 +2,8 @@
 .parcel-cache/
 node_modules/
 lib/
+tests/fixtures/*
+!tests/fixtures/src
+!tests/fixtures/.parcelrc
+!tests/fixtures/package.json
+!tests/fixtures/gold-map.json
