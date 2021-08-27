@@ -4,7 +4,7 @@ import path from "path";
 import {AssetMap, Options} from "./types";
 import {PluginOptions} from "@parcel/types";
 
-const MANIFEST_FILENAME = 'asset-map.json';
+export const MAP_FILENAME = 'asset-map.json';
 
 function loadConfig(options: PluginOptions): Options {
     const raw = options.outputFS.readFileSync(path.join(options.projectRoot, "package.json"), 'utf-8');
@@ -85,7 +85,7 @@ export default new Reporter({
                 }
             }
 
-            const assetMapPath = path.relative(options.projectRoot, `${targetDir}/${MANIFEST_FILENAME}`);
+            const assetMapPath = path.relative(options.projectRoot, `${targetDir}/${MAP_FILENAME}`);
             await options.outputFS.writeFile(assetMapPath, JSON.stringify(assetMap), null);
 
             console.log(`🗺 Asset map: ${assetMapPath}`);
