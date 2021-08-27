@@ -1,7 +1,7 @@
 import {PackagedBundle, Asset, BundleGraph} from "@parcel/types";
 
 export type EntriesMap = {
-    [key: string]: Array<string>
+    [key: string]: any | EntriesMap
 }
 
 export type AssetMap = {
@@ -16,6 +16,7 @@ export type AssetMap = {
 export type Options = {
     removeHTML: boolean,
     onlyRootChildren: boolean,
+    groups: Array<string>,
 }
 
 export interface BundlePack {

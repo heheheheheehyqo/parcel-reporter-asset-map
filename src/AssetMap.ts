@@ -3,6 +3,7 @@ import {BundleBox} from "./BundleBox";
 import path from "path";
 import {AssetMap, Options} from "./types";
 import {PluginOptions} from "@parcel/types";
+import {EntryMapBuilder} from "./EntryMapBuilder";
 
 export const MAP_FILENAME = 'asset-map.json';
 
@@ -13,6 +14,7 @@ function loadConfig(options: PluginOptions): Options {
     return {
         removeHTML: false,
         onlyRootChildren: true,
+        groups: ['default'],
         ...packageJson['assetMap']
     };
 }
@@ -23,6 +25,8 @@ export default new Reporter({
             return
 
         const config = loadConfig(options);
+
+        const entryMapBuilder = new EntryMapBuilder(config, options);
 
         const map = new Map<string, Array<BundleBox>>();
         const {bundleGraph} = event;
@@ -66,7 +70,9 @@ export default new Reporter({
                 const targetPublicPath = bundleBox.getTargetPublicPath();
 
                 if (asset.type === 'html') {
-                    assetMap.entries[path.basename(asset.filePath, '.html')] = bundleBox.getEntriesMap(options);
+                    const entryName = path.basename(asset.filePath, '.html');
+
+                    assetMap.entries[entryName] = entryMapBuilder.build(bundleBox.children);
 
                     if (config.removeHTML)
                         options.outputFS.existsSync(targetPath)

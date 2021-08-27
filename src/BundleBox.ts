@@ -1,5 +1,4 @@
-import {Asset, BundleGraph, PackagedBundle, PluginOptions} from "@parcel/types";
-import {EntriesMap} from "./types";
+import {Asset, BundleGraph, PackagedBundle} from "@parcel/types";
 import path from "path";
 
 export class BundleBox {
@@ -28,27 +27,6 @@ export class BundleBox {
 
     static getMainAsset(bundle: PackagedBundle): Asset | null {
         return bundle.getMainEntry() ?? null
-    }
-
-    getEntriesMap(options: PluginOptions): EntriesMap {
-        const entriesMap: EntriesMap = {};
-
-        this.children.forEach(child => {
-            const asset = BundleBox.getMainAsset(child);
-            if (!asset)
-                return
-
-            const assetName = path.relative(options.projectRoot, asset.filePath);
-
-            if (!entriesMap[asset.type]) {
-                entriesMap[asset.type] = [];
-            }
-
-            if (!entriesMap[asset.type].includes(assetName))
-                entriesMap[asset.type].push(assetName);
-        })
-
-        return entriesMap;
     }
 
     getBrowserType(): string {

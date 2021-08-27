@@ -11,5 +11,11 @@
   },
   "browserslist": [
     "Chrome 40"
-  ]
+  ],
+  "assetMap": {
+    "groups": [
+      "default",
+      "critical"
+    ]
+  }
 }

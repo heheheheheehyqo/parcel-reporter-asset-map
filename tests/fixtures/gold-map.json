@@ -12,9 +12,9 @@
             "nomodule": "/page1.[hash].js",
             "module": "/page1.[hash].js"
         },
-        "src/css/styles1.css": "/page1.[hash].css",
         "src/css/styles2.css": "/page1.[hash].css",
         "src/css/styles3.css": "/page1.[hash].css",
+        "src/css/styles1.critical.css": "/page1.[hash].css",
         "src/js/script_4.js": {
             "nomodule": "/page2.[hash].js",
             "module": "/page2.[hash].js"
@@ -22,37 +22,53 @@
     },
     "entries": {
         "page1": {
-            "css": [
-                "src/css/styles3.css",
-                "src/css/styles2.css",
-                "src/css/styles1.css"
-            ],
-            "js": [
-                "src/js/script_3.js",
-                "src/js/script_2.js",
-                "src/js/script_1.js"
-            ]
+            "critical": {
+                "css": [
+                    "src/css/styles1.critical.css"
+                ]
+            },
+            "default": {
+                "css": [
+                    "src/css/styles3.css",
+                    "src/css/styles2.css"
+                ],
+                "js": [
+                    "src/js/script_3.js",
+                    "src/js/script_2.js",
+                    "src/js/script_1.js"
+                ]
+            }
         },
         "page2": {
-            "css": [
-                "src/css/styles1.css"
-            ],
-            "js": [
-                "src/js/script_4.js",
-                "src/js/script_2.js",
-                "src/js/script_1.js"
-            ]
+            "critical": {
+                "css": [
+                    "src/css/styles1.critical.css"
+                ]
+            },
+            "default": {
+                "js": [
+                    "src/js/script_4.js",
+                    "src/js/script_2.js",
+                    "src/js/script_1.js"
+                ]
+            }
         },
         "page3": {
-            "css": [
-                "src/css/styles2.css",
-                "src/css/styles1.css"
-            ],
-            "js": [
-                "src/js/script_4.js",
-                "src/js/script_3.js",
-                "src/js/script_1.js"
-            ]
+            "critical": {
+                "css": [
+                    "src/css/styles1.critical.css"
+                ]
+            },
+            "default": {
+                "css": [
+                    "src/css/styles2.css"
+                ],
+                "js": [
+                    "src/js/script_4.js",
+                    "src/js/script_3.js",
+                    "src/js/script_1.js"
+                ]
+            }
         }
     }
 }

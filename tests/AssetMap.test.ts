@@ -11,10 +11,7 @@ beforeAll(() => {
 
 test("valid map", async () => {
     process.chdir(path.join(__dirname, "./fixtures"))
-    execSync(
-        "rm -rf package-lock.json .parcel-cache dist node_modules && npm install && npm run build"
-        // "npm run build"
-    )
+    execSync("rm -rf package-lock.json .parcel-cache dist node_modules && npm install && npm run build")
 
     const generatedMap = normalize(loadMap(`dist/${MAP_FILENAME}`));
     const goldMap = loadMap(`gold-map.json`);
@@ -33,7 +30,7 @@ function loadMap(mapPath: string) {
 function normalize(object: object): object {
     for (const [key, value] of Object.entries(object)) {
 
-        if (typeof value === 'object') {
+        if (!(value instanceof Array) && (typeof value === 'object')) {
             object[key] = normalize(value);
         }
 
