@@ -4,6 +4,7 @@
   "description": "Parcel 2 plugin for generating a bundle's asset map",
   "scripts": {
     "build": "parcel build",
+    "prepublishOnly": "npm run build",
     "pretest": "npm run build",
     "test": "jest"
   },
@@ -19,9 +20,6 @@
   ],
   "author": "Oleg Sedinkin",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/hyqo/parcel-reporter-asset-map/issues"
-  },
   "homepage": "https://github.com/hyqo/parcel-reporter-asset-map#readme",
   "main": "./lib/AssetMap.js",
   "engines": {
@@ -48,10 +46,8 @@
         "node": ">= 10.0.0"
       },
       "source": "src/AssetMap.ts",
+      "sourceMap": false,
       "distDir": "./lib"
     }
-  },
-  "directories": {
-    "lib": "lib"
   }
 }
