@@ -20,7 +20,6 @@
   ],
   "author": "Oleg Sedinkin",
   "license": "MIT",
-  "homepage": "https://github.com/hyqo/parcel-reporter-asset-map#readme",
   "main": "./lib/AssetMap.js",
   "engines": {
     "parcel": "2.0.0-rc.0"
