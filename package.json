@@ -1,6 +1,6 @@
 {
   "name": "@hyqo/parcel-reporter-asset-map",
-  "version": "1.0.1",
+  "version": "1.0.2“",
   "description": "Parcel 2 plugin for generating a bundle's asset map",
   "scripts": {
     "build": "parcel build",
@@ -22,7 +22,7 @@
   "license": "MIT",
   "main": "./lib/AssetMap.js",
   "engines": {
-    "parcel": "2.0.0"
+    "parcel": "^2.0.0"
   },
   "peerDependencies": {
     "parcel": "^2.0.0"
@@ -34,7 +34,9 @@
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.2",
     "jest": "^27.0.6",
-    "ts-jest": "^27.0.5"
+    "ts-jest": "^27.0.5",
+    "parcel": "^2.0.0",
+    "typescript": "^4.4.4"
   },
   "targets": {
     "main": {
