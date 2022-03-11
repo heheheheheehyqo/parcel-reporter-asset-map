@@ -59,19 +59,19 @@ More info: https://v2.parceljs.org/features/targets/#differential-bundling
 ## Installation
 
 ```sh
-npm install --save-dev parcel-reporter-asset-map
+npm install --save-dev @hyqo/parcel-reporter-asset-map
 ```
 
 ## Usage
 
-Add `parcel-reporter-asset-map` to `.parcelrc` in `reporters`.
+Add `@hyqo/parcel-reporter-asset-map` to `.parcelrc` in `reporters`.
 
 ```json
 {
     "extends": "@parcel/config-default",
     "reporters": [
         "...",
-        "parcel-reporter-asset-map"
+        "@hyqo/parcel-reporter-asset-map"
     ]
 }
 ```
